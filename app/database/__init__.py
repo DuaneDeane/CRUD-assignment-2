@@ -5,7 +5,7 @@
 from flask import g
 import sqlite3
 
-DATABASE = "HW2_db"
+DATABASE = "user_db"
 
 
 def get_db():
@@ -66,11 +66,11 @@ def update(users_id, fields: dict):
 def create(name, hobby, sex):
     value_tuple = (name, hobby, sex)
     query = """
-                INSERT INTO product (
+                INSERT INTO user (
                         name,
                         hobby,
                         sex)
-                VALUES (?, ?, ?, ?)
+                VALUES (?, ?, ?)
             """
     cursor = get_db()
     last_row_id = cursor.execute(query, value_tuple).lastrowid
